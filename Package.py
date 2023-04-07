@@ -68,6 +68,13 @@ class Package(object):
     def calculate(self) -> float:
         pass
 
+    def __eq__(self, other_package: 'Package'):
+        if isinstance(other_package, Package):
+            return self._id == other_package._id and self._weight == other_package._weight and \
+                self._description == other_package._description
+        return False
 
-prueba_1 = Package(35, 10, "descripcion paquete 32")
-print(prueba_1)
+
+test_1 = Package(35, 10, "descripcion paquete 32")
+
+print(test_1)

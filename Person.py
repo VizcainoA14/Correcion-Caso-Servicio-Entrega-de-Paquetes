@@ -54,6 +54,13 @@ class Person:
     def __str__(self) -> str:
         return f"""\nDNI: {self._dni}\nName: {self._firstName} {self._lastname}"""
 
+    def __eq__(self, other):
+        if isinstance(other, Person):
+            return (self._dni == other._dni and
+                    self._firstName == other._firstName and
+                    self._lastname == other._lastname)
+        return False
 
-x = Person(334, "Adrian", "Vizcaino")
-print(x.__str__())
+
+test_4 = Person(334, "Adrian", "Vizcaino")
+print(test_4)

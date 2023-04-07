@@ -29,6 +29,13 @@ class OverweightPackage(Package):
     def __str__(self) -> str:
         return super().__str__()
 
+    def __eq__(self, other_Spackage: 'OverweightPackage'):
+        if isinstance(other_Spackage, OverweightPackage):
+            return super().__eq__(other_Spackage) and self._Over_weight == other_Spackage._Over_weight and \
+                self._cost == other_Spackage._cost
+        return False
 
-prueba_2 = OverweightPackage(36, 85, "descripcion paquete 36")
-print(prueba_2)
+
+test_2 = OverweightPackage(36, 85, "descripcion paquete 36")
+
+print(test_2)

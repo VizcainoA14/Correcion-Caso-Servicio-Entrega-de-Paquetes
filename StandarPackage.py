@@ -22,6 +22,12 @@ class Standar_Package(Package):
     def __str__(self) -> str:
         return super().__str__()
 
+    def __eq__(self, other_Spackage: 'Standar_Package'):
+        if isinstance(other_Spackage, Standar_Package):
+            return super().__eq__(other_Spackage) and self._fixedFee == other_Spackage._fixedFee
+        return False
 
-prueba_3 = Standar_Package(37, 85, "descripcion paquete 37")
-print(prueba_3)
+
+test_3 = Standar_Package(37, 20, "descripcion paquete 37")
+
+print(test_3)
