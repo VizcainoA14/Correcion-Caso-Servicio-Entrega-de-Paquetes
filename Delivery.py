@@ -1,12 +1,15 @@
-from Person import Person
-from Address import address
-from Package import Package
+from Person import Person  # Import class Person
+from Address import address  # Import class Address
+from Package import Package  # Import class Package
+from OverweightPackage import OverweightPackage  # Import class OverweightPackage
+from StandarPackage import Standar_Package  # Import class Standar_Package
 
 
-class Deliver():
+class Deliver(object):  # "Deliver" new class
+    # This class was extended in lines of code due to the number of attributes that an object of the class contains.
     def __init__(self, code_id: int, date: int, time: int, sender: Person,
                  reciver: Person, sender_add_address: address, reciver_add_address: address,
-                 contact: Person, items: Package) -> None:
+                 contact: Person, items: Package) -> None:  # Creating the constructor
         # Constraints
         if type(code_id) != int:
             print("\nThe entered value is invalid!, please enter a new value")
@@ -159,10 +162,11 @@ class Deliver():
             self._items = new_items
 
     # _str_n
-    def __str__(self):
+    def __str__(self):  # "Print" method
         return f"""\nID: {self._code_id}\nFecha: {self._date}\nHora: {self._time}\nSender: {self._sender.__str__()}\nReciver: {self._reciver.__str__()}\nAdress: {self._reciver_add_address.__str__()}\nContacto:  {self._contact.__str__()}\nItems: {self._items.__str__()}  """
 
     def __eq__(self, other_deliver: 'Deliver') -> bool:
+        # Verifying that the object is equal to the other object
         if not isinstance(other_deliver, Deliver):
             return False
 
@@ -177,8 +181,9 @@ class Deliver():
             self._items == other_deliver._items
 
 
+# Prove variable
 test_6 = Deliver(1, 2, 3, Person(1, "samuel", "tobio"), Person(2, "mariana", "ortiz"),
                  address("Calle 2", "La princesa", "Department 6"),
                  address("Calle3", "La Princesa", "Department 7"),
-                 Person(3, "Juan", "Perez"), Package(4, 68.3, "Big Package"))
-print(test_6)
+                 Person(3, "Juan", "Perez"), OverweightPackage(4, 68.3, "Big Package"))
+print(test_6)  # Printing the "test_6"
